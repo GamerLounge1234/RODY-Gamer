@@ -15,7 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        /* --- 1. PREMIUM VARIABLES & RESET --- */
         :root {
             --bg-deep: #0a0a0a;
             --bg-panel: #111113;
@@ -57,7 +56,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* --- 2. PREMIUM CURSOR --- */
         .cursor {
             position: fixed;
             top: 0;
@@ -97,7 +95,6 @@
             border-width: 1px;
         }
 
-        /* --- 3. BACKGROUND FX --- */
         #canvas-container {
             position: fixed;
             top: 0;
@@ -124,7 +121,6 @@
             pointer-events: none;
         }
 
-        /* --- 4. PRELOADER --- */
         .preloader {
             position: fixed;
             top: 0;
@@ -163,7 +159,6 @@
             transition: width 0.8s ease;
         }
 
-        /* --- 5. PREMIUM NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
@@ -252,7 +247,6 @@
             box-shadow: 0 10px 20px rgba(230, 0, 34, 0.1);
         }
 
-        /* --- 6. PREMIUM HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -367,7 +361,6 @@
             transform: translateX(5px);
         }
 
-        /* --- 7. PREMIUM CARDS --- */
         .schedule-section {
             padding: 150px 80px;
             max-width: 1600px;
@@ -511,48 +504,7 @@
             color: rgba(230, 0, 34, 0.5);
         }
 
-        /* --- 8. MARQUEE --- */
-        /* .marquee-container {
-            overflow: hidden;
-            padding: 60px 0;
-            background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(17,17,19,1) 50%, rgba(10,10,10,1) 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .marquee {
-            display: flex;
-            white-space: nowrap;
-        }
-
-        .marquee-content {
-            display: flex;
-            animation: marquee 40s linear infinite;
-        }
-
-        .marquee-item {
-            padding: 0 40px;
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            color: rgba(255, 255, 255, 0.05);
-            text-transform: uppercase;
-            font-weight: 900;
-            letter-spacing: 3px;
-            transition: color 0.3s ease;
-        }
-
-        .marquee-item:hover {
-            color: var(--primary-red);
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        } */
-
-        /* =========================
-   PREMIUM MARQUEE (AAA)
-========================= */
+   
 
 .marquee-container {
     position: relative;
@@ -634,7 +586,6 @@
 
 
 
-        /* --- 9. ABOUT SECTION --- */
         .about-section {
             padding: 150px 80px;
             max-width: 1400px;
@@ -1085,7 +1036,6 @@
             }, 1000);
         });
 
-        // --- 2. PREMIUM CURSOR LOGIC ---
         const cursor = document.querySelector('.cursor');
         const cursorOutline = document.querySelector('.cursor-outline');
         const hoverTargets = document.querySelectorAll('a, button, .card-wrap, .btn-premium');
@@ -1117,7 +1067,6 @@
             });
         });
 
-        // --- 3. PREMIUM BACKGROUND PARTICLES ---
         const canvas = document.getElementById('canvas-container');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -1185,11 +1134,9 @@
         initParticles();
         animateParticles();
 
-        // --- 4. PREMIUM GSAP ANIMATIONS ---
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Hero Text Reveal
             const tl = gsap.timeline();
             tl.from('h1 .line', {
                 y: 100,
@@ -1211,7 +1158,6 @@
                 ease: "power3.out"
             }, "-=0.6");
 
-            // Section Header Animation
             gsap.from('.section-header', {
                 scrollTrigger: {
                     trigger: '.schedule-section',
@@ -1223,7 +1169,6 @@
                 ease: "power3.out"
             });
 
-            // Card Stagger Animation
             gsap.from('.card-wrap', {
                 scrollTrigger: {
                     trigger: '.schedule',
@@ -1236,7 +1181,6 @@
                 ease: "power3.out"
             });
 
-            // About Section Animation
             gsap.from('.about-text', {
                 scrollTrigger: {
                     trigger: '.about-section',
@@ -1259,7 +1203,6 @@
                 ease: "power3.out"
             });
 
-            // 3D Tilt Effect for Cards
             const cards = document.querySelectorAll('.card-wrap');
 
             cards.forEach(card => {
@@ -1293,7 +1236,6 @@
                 });
             });
 
-            // Navbar background on scroll
             ScrollTrigger.create({
                 start: "top -80",
                 onUpdate: (self) => {
