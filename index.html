@@ -2,1511 +2,1914 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RODY GAMER | Premium Among Us & Horror Cinematic Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RODY | Official Website</title>
+    <meta name="description" content="RODY Official Website - Premium daily official Among Us gameplay, Dead by Daylight, story games, and the hit series Among Us Lost in an Island.">
+    <meta name="theme-color" content="#ff0033">
     
+    <!-- Google Fonts for Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. CORE VARIABLES & DESIGN TOKENS
+           RODY OFFICIAL PREMIUM WEBSITE - ULTIMATE CSS STYLESHEET
+           Theme: High-End Gaming / Deep Space Dark Mode / Impostor Red Accents
+           Style: Highly Addictive, Symmetrical, Fully Animated, 100% Custom
            ========================================================================== */
+
+        /* --- 1. CSS VARIABLES (Premium Design Tokens) --- */
         :root {
-            /* Color Palette */
-            --bg-void: #010102;
-            --bg-deep: #050507;
-            --bg-panel: rgba(12, 12, 16, 0.75);
-            --bg-glass: rgba(20, 20, 25, 0.4);
+            /* Ultimate Color Palette */
+            --bg-deep-space: #030305;
+            --bg-void: #000000;
+            --bg-panel: rgba(15, 15, 20, 0.6);
+            --bg-panel-hover: rgba(255, 0, 51, 0.05);
+            --bg-glass: rgba(10, 10, 15, 0.85);
             
-            --primary-red: #ff0033;
-            --blood-red: #8a0510;
-            --neon-cyan: #00ffff;
-            --warning-yellow: #ffb700;
-            --toxic-green: #39ff14;
+            /* Among Us Red Theme */
+            --impostor-red: #ff0033;
+            --impostor-red-dark: #b30024;
+            --impostor-red-glow: rgba(255, 0, 51, 0.6);
+            --impostor-red-fade: rgba(255, 0, 51, 0.1);
             
-            --text-white: #ffffff;
-            --text-offwhite: #e0e0e4;
-            --text-muted: #75757f;
-            --text-dark: #0a0a0c;
+            /* Text Colors */
+            --text-pure: #ffffff;
+            --text-main: #e0e0e5;
+            --text-muted: #8a8d98;
+            --text-dark: #121212;
             
-            --grid-color: rgba(0, 255, 255, 0.025);
-            --border-glow: rgba(0, 255, 255, 0.15);
+            /* Borders & Shadows */
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-red: rgba(255, 0, 51, 0.3);
+            --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            --shadow-red-glow: 0 0 30px rgba(255, 0, 51, 0.4);
+            --shadow-red-glow-intense: 0 0 50px rgba(255, 0, 51, 0.8);
             
-            /* Typography */
-            --font-display: 'Cinzel', serif;
-            --font-ui: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            /* Premium Typography */
+            --font-display: 'Montserrat', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
             
-            /* Physics & Easing */
-            --easing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-            --easing-snappy: cubic-bezier(0.87, 0, 0.13, 1);
-            --transition-fast: 0.2s var(--easing-smooth);
-            --transition-base: 0.4s var(--easing-smooth);
-            --transition-slow: 0.8s var(--easing-smooth);
+            /* Layout & Spacing */
+            --max-width: 1400px;
+            --section-padding: 8rem 5%;
+            --gap-sm: 1rem;
+            --gap-md: 2.5rem;
+            --gap-lg: 5rem;
             
-            /* Elevation */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
-            --radius-pill: 100px;
+            /* Transitions */
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            --transition-fast: 0.3s var(--ease-out-expo);
+            --transition-slow: 0.8s var(--ease-out-expo);
             
-            --shadow-float: 0 30px 60px rgba(0, 0, 0, 0.8);
-            --shadow-neon-cyan: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.1);
-            --shadow-neon-red: 0 0 20px rgba(255, 0, 51, 0.4), 0 0 60px rgba(255, 0, 51, 0.2);
-            --glow-inner: inset 0 0 30px rgba(0, 0, 0, 0.9);
+            /* Z-Indexes */
+            --z-back: -10;
+            --z-canvas: -1;
+            --z-normal: 1;
+            --z-nav: 1000;
+            --z-cursor: 9999;
+            --z-marquee: 1001;
         }
 
-        /* ==========================================================================
-           2. RESET & BASE STYLES
-           ========================================================================== */
+        /* --- 2. PREMIUM RESET & BASE --- */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        ::selection {
-            background: var(--primary-red);
-            color: var(--text-white);
+            cursor: none; /* Hide default cursor for custom premium cursor */
         }
 
         html {
-            scroll-behavior: auto; /* Handled by JS for smoothness */
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-red) var(--bg-void);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-void);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
-            border-radius: var(--radius-pill);
+            scroll-behavior: auto; /* Handled by JS for ultra-smoothness */
+            font-size: 16px;
+            overflow-x: hidden;
+            background-color: var(--bg-void);
         }
 
         body {
-            background-color: var(--bg-void);
-            color: var(--text-white);
             font-family: var(--font-body);
-            font-weight: 400;
+            color: var(--text-main);
+            background-color: transparent;
             line-height: 1.7;
             overflow-x: hidden;
-            cursor: none; /* Custom Cursor */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            width: 100%;
+            position: relative;
         }
 
-        /* ==========================================================================
-           3. NOISE & CANVAS BACKGROUNDS
-           ========================================================================== */
-        #bg-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            z-index: -3;
-            background: radial-gradient(circle at 50% 50%, #0a0a0f 0%, var(--bg-void) 100%);
+        /* Ultimate Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-void);
+            border-left: 1px solid var(--border-subtle);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--impostor-red-dark);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--impostor-red);
+            box-shadow: 0 0 10px var(--impostor-red);
         }
 
-        .noise-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        /* Selection */
+        ::selection {
+            background-color: var(--impostor-red);
+            color: var(--text-pure);
+            text-shadow: 0 0 5px white;
         }
 
-        .cyber-grid {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 80px 80px;
-            z-index: -2;
-            pointer-events: none;
-            transform: perspective(1000px) rotateX(60deg) translateY(100px) translateZ(-200px);
-            transform-origin: bottom;
-            animation: grid-move 20s linear infinite;
-            opacity: 0.3;
-        }
-
-        @keyframes grid-move {
-            0% { transform: perspective(1000px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(1000px) rotateX(60deg) translateY(80px) translateZ(-200px); }
-        }
-
-        /* ==========================================================================
-           4. CUSTOM CURSOR
-           ========================================================================== */
+        /* --- 3. CUSTOM PREMIUM CURSOR --- */
         .cursor-dot {
-            position: fixed;
-            top: 0; left: 0;
-            width: 6px; height: 6px;
-            background-color: var(--neon-cyan);
+            width: 8px;
+            height: 8px;
+            background-color: var(--impostor-red);
             border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
             transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: var(--z-cursor);
+            box-shadow: 0 0 10px var(--impostor-red);
             transition: width 0.2s, height 0.2s, background-color 0.2s;
         }
 
-        .cursor-ring {
-            position: fixed;
-            top: 0; left: 0;
-            width: 40px; height: 40px;
-            border: 1px solid rgba(0, 255, 255, 0.4);
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--impostor-red-glow);
             border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
             pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s var(--easing-smooth), height 0.3s var(--easing-smooth), border-color 0.3s;
+            z-index: var(--z-cursor);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            transition-timing-function: var(--ease-out-expo);
         }
 
-        .cursor-dot.hover-target {
-            width: 10px; height: 10px;
-            background-color: var(--primary-red);
-            box-shadow: 0 0 10px var(--primary-red);
+        /* Hover states for cursor managed by JS */
+        .cursor-hover .cursor-dot {
+            background-color: var(--text-pure);
+            box-shadow: 0 0 15px var(--text-pure);
+        }
+        .cursor-hover .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: var(--impostor-red-fade);
+            border-color: var(--impostor-red);
         }
 
-        .cursor-ring.hover-target {
-            width: 60px; height: 60px;
-            border-color: var(--primary-red);
-            background-color: rgba(255, 0, 51, 0.05);
-        }
-
-        /* ==========================================================================
-           5. CINEMATIC PRELOADER
-           ========================================================================== */
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-void);
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .loader-brand {
+        /* --- 4. GLOBAL TYPOGRAPHY --- */
+        h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--text-white);
-            letter-spacing: 12px;
-            font-weight: 800;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .loader-brand::after {
-            content: 'RODY GAMER';
-            position: absolute;
-            left: 0; top: 0;
-            color: var(--primary-red);
-            opacity: 0;
-            animation: text-glitch 2s infinite;
-        }
-
-        .loader-progress-wrap {
-            width: 400px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .loader-progress-bar {
-            position: absolute;
-            top: 0; left: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--neon-cyan);
-            box-shadow: 0 0 20px var(--neon-cyan);
-        }
-
-        .loader-percentage {
-            margin-top: 15px;
-            font-family: var(--font-ui);
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            color: var(--neon-cyan);
-        }
-
-        @keyframes text-glitch {
-            0%, 100% { opacity: 0; transform: translateX(0); }
-            5%, 15% { opacity: 1; transform: translateX(-3px); }
-            10%, 20% { opacity: 1; transform: translateX(3px); }
-            25% { opacity: 0; transform: translateX(0); }
-        }
-
-        /* ==========================================================================
-           6. NAVIGATION (ICON-FREE)
-           ========================================================================== */
-        nav {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            padding: 30px 5vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition-base);
-        }
-
-        nav.scrolled {
-            padding: 15px 5vw;
-            background: rgba(1, 1, 2, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-logo {
-            font-family: var(--font-ui);
-            font-weight: 800;
-            font-size: 1.4rem;
-            letter-spacing: 6px;
-            color: var(--text-white);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        /* Pure CSS Radar Symbol instead of icon */
-        .radar-symbol {
-            width: 18px; height: 18px;
-            border: 2px solid var(--primary-red);
-            border-radius: 50%;
-            position: relative;
-            display: inline-block;
-            box-shadow: 0 0 10px rgba(255,0,51,0.5);
-        }
-        .radar-symbol::after {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 4px; height: 4px;
-            background: var(--primary-red);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: radar-ping 2s infinite ease-out;
-        }
-
-        @keyframes radar-ping {
-            0% { box-shadow: 0 0 0 0 rgba(255,0,51,0.8); }
-            100% { box-shadow: 0 0 0 15px rgba(255,0,51,0); }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 4vw;
-        }
-
-        .nav-item {
-            text-decoration: none;
-            color: var(--text-offwhite);
-            font-family: var(--font-ui);
-            font-size: 0.85rem;
-            font-weight: 500;
+            color: var(--text-pure);
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            text-align: center;
+            margin-bottom: var(--gap-lg);
             position: relative;
-            padding: 5px 0;
-            transition: var(--transition-fast);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 0%; height: 1px;
-            background: var(--neon-cyan);
-            transition: width var(--transition-base);
-        }
-
-        .nav-item:hover {
-            color: var(--text-white);
-            text-shadow: 0 0 8px rgba(255,255,255,0.5);
-        }
-        .nav-item:hover::before { width: 100%; }
-
-        .nav-action {
-            padding: 12px 28px;
-            background: transparent;
-            border: 1px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            font-family: var(--font-ui);
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition-base);
-        }
-
-        .nav-action::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: var(--neon-cyan);
-            transition: left var(--transition-base);
-            z-index: -1;
-        }
-
-        .nav-action:hover {
-            color: var(--bg-void);
-            box-shadow: var(--shadow-neon-cyan);
-        }
-        .nav-action:hover::before { left: 0; }
-
-        /* ==========================================================================
-           7. HERO SECTION & CSS CHARACTER
-           ========================================================================== */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 5vw 60px;
-            overflow: hidden;
-        }
-
-        .hero-layout {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .hero-text-content {
+        /* Premium symmetrical header styling */
+        .section-header {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .system-alert {
-            display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 16px;
-            background: rgba(255, 0, 51, 0.05);
-            border: 1px solid rgba(255, 0, 51, 0.2);
-            border-radius: var(--radius-sm);
-            margin-bottom: 40px;
-        }
-
-        .alert-dot {
-            width: 8px; height: 8px;
-            background: var(--primary-red);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary-red);
-            animation: blink 1s infinite alternate;
-        }
-
-        .alert-text {
-            font-family: var(--font-ui);
-            font-size: 0.75rem;
-            color: var(--primary-red);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(3.5rem, 7vw, 7.5rem);
-            line-height: 0.95;
-            color: var(--text-white);
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            font-weight: 900;
-        }
-
-        .hero-title .highlight {
-            color: var(--primary-red);
-            display: block;
-            text-shadow: 0 0 20px rgba(255,0,51,0.3);
+            justify-content: center;
+            margin-bottom: var(--gap-lg);
             position: relative;
         }
 
-        .hero-desc {
-            font-family: var(--font-body);
-            font-size: clamp(1rem, 1.2vw, 1.25rem);
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.8;
-            margin-bottom: 50px;
-            font-weight: 300;
+        .section-subtitle {
+            font-family: var(--font-heading);
+            color: var(--impostor-red);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
 
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px 45px;
-            background: var(--text-white);
-            color: var(--bg-void);
-            font-family: var(--font-ui);
+        .section-subtitle::before, .section-subtitle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--impostor-red);
+        }
+
+        .section-subtitle::before { right: 100%; margin-right: 15px; }
+        .section-subtitle::after { left: 100%; margin-left: 15px; }
+
+        p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        a {
+            color: var(--text-pure);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        strong {
+            color: var(--impostor-red);
+            font-weight: 700;
+        }
+
+        /* --- 5. CANVAS & BACKGROUND FX --- */
+        #space-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: var(--z-canvas);
+            pointer-events: none;
+            background: radial-gradient(circle at center, var(--bg-deep-space) 0%, var(--bg-void) 100%);
+        }
+
+        /* Red Nebula Overlay */
+        .nebula-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: var(--z-canvas);
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 51, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 51, 0.04) 0%, transparent 50%);
+            mix-blend-mode: screen;
+        }
+
+        /* --- 6. PREMIUM MARQUEE (Top) --- */
+        .premium-marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--impostor-red);
+            color: var(--text-dark);
+            padding: 8px 0;
+            z-index: var(--z-marquee);
+            font-family: var(--font-heading);
             font-weight: 700;
             font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            transition: var(--transition-base);
-            position: relative;
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border: 1px solid var(--text-white);
-            border-radius: var(--radius-sm);
-            opacity: 0;
-            transition: var(--transition-base);
-        }
-
-        .btn-primary:hover {
-            background: var(--neon-cyan);
-            box-shadow: var(--shadow-neon-cyan);
-        }
-        .btn-primary:hover::after {
-            inset: -8px;
-            opacity: 0.5;
-            border-color: var(--neon-cyan);
-        }
-
-        /* Pure CSS Crewmate/Imposter Visual */
-        .hero-visual-container {
-            position: relative;
-            height: 600px;
+            overflow: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-        }
-
-        .css-imposter-wrapper {
-            position: relative;
-            width: 300px; height: 420px;
-            animation: float-obj 8s ease-in-out infinite;
-            transform-style: preserve-3d;
-            filter: drop-shadow(0 30px 40px rgba(0,0,0,0.8));
-        }
-
-        /* The Body */
-        .crewmate-body {
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 220px; height: 320px;
-            background: linear-gradient(135deg, #1a1a24 0%, #08080c 100%);
-            border-radius: 110px 110px 60px 60px;
-            border: 6px solid #2a2a35;
-            box-shadow: inset -20px -20px 40px rgba(0,0,0,0.9), inset 10px 10px 20px rgba(255,255,255,0.05);
-        }
-
-        /* The Backpack */
-        .crewmate-pack {
-            position: absolute;
-            top: 60px; right: -40px;
-            width: 80px; height: 180px;
-            background: linear-gradient(135deg, #15151e 0%, #050508 100%);
-            border-radius: 30px;
-            border: 6px solid #2a2a35;
-            z-index: -1;
-            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8);
-        }
-
-        /* The Legs */
-        .crewmate-leg {
-            position: absolute;
-            bottom: -50px;
-            width: 80px; height: 90px;
-            background: linear-gradient(180deg, #08080c 0%, #030305 100%);
-            border: 6px solid #2a2a35;
-            border-top: none;
-        }
-        .leg-left { left: 10px; border-radius: 0 0 30px 30px; }
-        .leg-right { right: 10px; border-radius: 0 0 30px 30px; }
-
-        /* The Visor (Anime/Cinematic style rendering) */
-        .crewmate-visor {
-            position: absolute;
-            top: 70px; left: -20px;
-            width: 170px; height: 110px;
-            background: linear-gradient(135deg, #e0f7fa 0%, #006064 50%, #000000 100%);
-            border-radius: 70px 90px 60px 70px;
-            border: 8px solid #111;
-            box-shadow: inset 5px 5px 10px rgba(255,255,255,0.8), 0 10px 20px rgba(0,0,0,0.6);
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        /* Visor Reflection */
-        .crewmate-visor::before {
-            content: '';
-            position: absolute;
-            top: 10px; left: 15px;
-            width: 80px; height: 35px;
-            background: rgba(255,255,255,0.7);
-            border-radius: 20px;
-            transform: rotate(-15deg);
-            filter: blur(2px);
-        }
-
-        /* Blood Splatter / Imposter details */
-        .blood-splat {
-            position: absolute;
-            background: var(--blood-red);
-            border-radius: 50%;
-            filter: blur(1px);
-        }
-        .splat-1 { top: 20px; right: 30px; width: 20px; height: 15px; transform: rotate(45deg); }
-        .splat-2 { top: 35px; right: 20px; width: 10px; height: 25px; }
-
-        @keyframes float-obj {
-            0%, 100% { transform: translateY(0) rotateX(5deg) rotateY(-10deg); }
-            50% { transform: translateY(-30px) rotateX(-5deg) rotateY(5deg); }
-        }
-
-        /* ==========================================================================
-           8. INFINITE MARQUEE STRIP
-           ========================================================================== */
-        .marquee-section {
-            background: var(--primary-red);
-            padding: 25px 0;
-            overflow: hidden;
-            position: relative;
-            transform: rotate(-1deg) scale(1.02);
-            z-index: 20;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border-top: 2px solid var(--text-dark);
-            border-bottom: 2px solid var(--text-dark);
+            box-shadow: 0 2px 20px var(--impostor-red-glow);
         }
 
         .marquee-track {
             display: flex;
-            width: max-content;
-            animation: scroll-left 40s linear infinite;
+            white-space: nowrap;
+            animation: marqueeScroll 25s linear infinite;
         }
 
-        .marquee-text {
-            font-family: var(--font-ui);
-            font-size: 1.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--text-dark);
-            padding: 0 40px;
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            padding: 0 2rem;
             display: flex;
             align-items: center;
-            gap: 40px;
         }
 
-        /* Pure CSS Separator Symbol */
-        .marquee-separator {
-            font-weight: 900;
-            color: var(--text-white);
-            font-size: 2rem;
-            line-height: 1;
+        .marquee-item::after {
+            content: '♦';
+            margin-left: 2rem;
+            font-size: 0.7rem;
+            opacity: 0.5;
         }
 
-        @keyframes scroll-left {
+        @keyframes marqueeScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
-        /* ==========================================================================
-           9. THE MANIFESTO (ABOUT)
-           ========================================================================== */
-        .manifesto {
-            padding: 150px 5vw;
+        /* --- 7. HEADER & NAVIGATION --- */
+        #site-header {
+            position: fixed;
+            top: 38px; /* Below marquee */
+            left: 0;
+            width: 100%;
+            z-index: var(--z-nav);
+            padding: 1.5rem 5%;
+            transition: all var(--transition-fast);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid transparent;
+        }
+
+        #site-header.scrolled {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 5%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* [IMAGE PLACEHOLDER]: Add transparent streamer logo here.
+           Recommended size: 200x200px, PNG format with transparent background.
+           Should feature RODY's branding/Among Us avatar. */
+        .brand-logo {
+            width: 60px;
+            height: 60px;
             position: relative;
-            background: linear-gradient(to bottom, var(--bg-void), var(--bg-deep));
-        }
-
-        .section-header {
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-        .tagline {
-            font-family: var(--font-ui);
-            color: var(--neon-cyan);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            text-transform: uppercase;
-        }
-
-        .manifesto-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .manifesto-text p {
-            font-size: 1.2rem;
-            color: var(--text-offwhite);
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 2px solid rgba(255, 0, 51, 0.4);
-            font-weight: 300;
-        }
-
-        .manifesto-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .stat-item h3 {
-            font-family: var(--font-ui);
-            font-size: 3.5rem;
-            color: var(--text-white);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-item span {
-            font-family: var(--font-ui);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .manifesto-visual {
-            position: relative;
-            border-radius: var(--radius-md);
+            border-radius: 50%;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            background: var(--bg-void);
-            box-shadow: var(--shadow-float);
+            border: 2px solid var(--border-subtle);
+            transition: all var(--transition-fast);
+            background: var(--bg-panel);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .manifesto-visual::after {
+        .brand-logo:hover {
+            border-color: var(--impostor-red);
+            box-shadow: var(--shadow-red-glow);
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Placeholder styling if no image */
+            display: block;
+        }
+
+        .brand-name {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: var(--text-pure);
+            position: relative;
+        }
+
+        .brand-name span {
+            color: var(--impostor-red);
+        }
+
+        #main-nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        #main-nav a {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-main);
+        }
+
+        #main-nav a::before {
             content: '';
             position: absolute;
-            inset: 0;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
-            pointer-events: none;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--impostor-red);
+            transition: width var(--transition-fast);
+            box-shadow: 0 0 10px var(--impostor-red);
         }
 
-        /* Abstract CSS Art replacing images */
-        .abstract-art {
-            width: 100%; height: 100%;
-            min-height: 500px;
-            background: 
-                radial-gradient(circle at 80% 20%, rgba(255,0,51,0.15) 0%, transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(0,255,255,0.1) 0%, transparent 40%);
+        #main-nav a:hover {
+            color: var(--text-pure);
+        }
+
+        #main-nav a:hover::before {
+            width: 100%;
+        }
+
+        /* --- 8. GLOBAL BUTTONS --- */
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--text-pure);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--impostor-red);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-fast);
+            z-index: 1;
+        }
+
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: var(--impostor-red);
+            z-index: -1;
+            transition: width var(--transition-fast);
+        }
+
+        .btn-premium:hover {
+            box-shadow: var(--shadow-red-glow-intense);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .btn-premium:hover::before {
+            width: 100%;
+        }
+
+        /* --- 9. LAYOUT UTILITIES --- */
+        section {
+            padding: var(--section-padding);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: var(--z-normal);
+        }
+
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--gap-lg);
+            align-items: center;
+        }
+
+        /* Premium Glass Panel */
+        .glass-panel {
+            background: var(--bg-panel);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-premium);
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .glass-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+        }
+
+        .glass-panel:hover::before {
+            left: 150%;
+        }
+
+        .glass-panel:hover {
+            border-color: var(--border-red);
+        }
+
+        /* --- 10. HERO SECTION (Impostor Intro) --- */
+        #hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .art-circle {
-            width: 300px; height: 300px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
+            text-align: center;
+            padding-top: 100px; /* Offset for nav */
             position: relative;
-            animation: spin-slow 20s linear infinite;
         }
-        .art-circle::before {
+
+        .hero-content {
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Glitch Effect Typography */
+        .glitch-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 0.9;
+            margin: 0;
+            color: var(--text-pure);
+            position: relative;
+            text-shadow: 0 0 20px rgba(255,0,51,0.2);
+        }
+
+        .hero-title::before, .hero-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .hero-title::before {
+            left: 4px;
+            text-shadow: -2px 0 var(--impostor-red);
+            clip: rect(44px, 1200px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .hero-title::after {
+            left: -4px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 1200px, 56px, 0);
+            animation: glitch-anim-2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(12px, 9999px, 83px, 0); }
+            5% { clip: rect(65px, 9999px, 34px, 0); }
+            10% { clip: rect(9px, 9999px, 99px, 0); }
+            15% { clip: rect(54px, 9999px, 12px, 0); }
+            20% { clip: rect(23px, 9999px, 76px, 0); }
+            25% { clip: rect(87px, 9999px, 45px, 0); }
+            30% { clip: rect(3px, 9999px, 90px, 0); }
+            35% { clip: rect(66px, 9999px, 21px, 0); }
+            40% { clip: rect(15px, 9999px, 88px, 0); }
+            45% { clip: rect(94px, 9999px, 5px, 0); }
+            50% { clip: rect(32px, 9999px, 67px, 0); }
+            55% { clip: rect(78px, 9999px, 44px, 0); }
+            60% { clip: rect(2px, 9999px, 59px, 0); }
+            65% { clip: rect(48px, 9999px, 19px, 0); }
+            70% { clip: rect(85px, 9999px, 73px, 0); }
+            75% { clip: rect(11px, 9999px, 38px, 0); }
+            80% { clip: rect(99px, 9999px, 2px, 0); }
+            85% { clip: rect(36px, 9999px, 81px, 0); }
+            90% { clip: rect(61px, 9999px, 14px, 0); }
+            95% { clip: rect(28px, 9999px, 92px, 0); }
+            100% { clip: rect(72px, 9999px, 47px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(89px, 9999px, 23px, 0); }
+            5% { clip: rect(14px, 9999px, 76px, 0); }
+            10% { clip: rect(57px, 9999px, 9px, 0); }
+            15% { clip: rect(92px, 9999px, 45px, 0); }
+            20% { clip: rect(5px, 9999px, 88px, 0); }
+            25% { clip: rect(33px, 9999px, 12px, 0); }
+            30% { clip: rect(79px, 9999px, 64px, 0); }
+            35% { clip: rect(21px, 9999px, 97px, 0); }
+            40% { clip: rect(68px, 9999px, 3px, 0); }
+            45% { clip: rect(4px, 9999px, 82px, 0); }
+            50% { clip: rect(55px, 9999px, 29px, 0); }
+            55% { clip: rect(98px, 9999px, 15px, 0); }
+            60% { clip: rect(37px, 9999px, 71px, 0); }
+            65% { clip: rect(12px, 9999px, 94px, 0); }
+            70% { clip: rect(84px, 9999px, 48px, 0); }
+            75% { clip: rect(26px, 9999px, 6px, 0); }
+            80% { clip: rect(73px, 9999px, 89px, 0); }
+            85% { clip: rect(9px, 9999px, 52px, 0); }
+            90% { clip: rect(46px, 9999px, 31px, 0); }
+            95% { clip: rect(91px, 9999px, 77px, 0); }
+            100% { clip: rect(18px, 9999px, 63px, 0); }
+        }
+
+        .hero-desc {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid var(--text-pure);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .mouse::before {
             content: '';
             position: absolute;
-            top: -5px; left: 50%;
-            width: 10px; height: 10px;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--neon-cyan);
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--impostor-red);
+            border-radius: 2px;
+            animation: scrollWheel 2s infinite;
         }
 
-        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
 
-        /* ==========================================================================
-           10. PROJECT SHOWCASE (AMONG US LOST ON AN ISLAND)
-           ========================================================================== */
-        .showcase {
-            padding: 150px 5vw;
-            background: #020203;
+        @keyframes scrollWheel {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 24px; }
+        }
+
+        /* --- 11. ABOUT RODY --- */
+        #about {
             position: relative;
         }
 
-        .showcase-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
-        }
-
-        .showcase-header .section-title span {
-            color: var(--warning-yellow);
-        }
-
-        /* Premium CRT Wrapper for Video */
-        .crt-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: #0a0a0c;
-            padding: 30px;
-            border-radius: 16px;
-            border: 2px solid #222;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 40px rgba(255, 183, 0, 0.05);
+        .about-image-wrapper {
             position: relative;
+            border-radius: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--impostor-red) 0%, transparent 50%, var(--bg-deep-space) 100%);
+            /* 3D Tilt container setup */
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
-        .crt-wrapper::before {
-            content: 'PLAY ►';
-            position: absolute;
-            top: 45px; left: 50px;
-            font-family: var(--font-ui);
-            color: var(--toxic-green);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            z-index: 10;
-            text-shadow: 0 0 10px var(--toxic-green);
-            pointer-events: none;
+        /* [IMAGE PLACEHOLDER]: Add Premium Streamer Portrait Image here.
+           Recommended size: 800x1000px. High resolution, showing RODY in a gaming setup
+           with red/dark lighting to match the premium theme. */
+        .about-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+            box-shadow: var(--shadow-premium);
+            filter: contrast(1.1) brightness(0.9);
+            transition: filter var(--transition-fast);
+            transform: translateZ(30px); /* 3D pop effect */
         }
 
-        .crt-wrapper::after {
-            content: 'REC •';
-            position: absolute;
-            top: 45px; right: 50px;
-            font-family: var(--font-ui);
-            color: var(--primary-red);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            z-index: 10;
-            text-shadow: 0 0 10px var(--primary-red);
-            animation: blink 1.5s infinite;
-            pointer-events: none;
+        .about-image:hover {
+            filter: contrast(1.2) brightness(1);
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #000;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
-            filter: contrast(1.1) saturate(1.2);
-        }
-
-        /* Scanline Overlay */
-        .scanlines {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-            background-size: 100% 4px;
-            z-index: 5;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .showcase-details {
-            max-width: 800px;
-            margin: 60px auto 0;
-            text-align: center;
-        }
-
-        .showcase-details p {
-            font-size: 1.15rem;
-            color: var(--text-offwhite);
-            margin-bottom: 20px;
-        }
-
-        /* ==========================================================================
-           11. BROADCAST SCHEDULES & OPERATIONS (Cards Base)
-           ========================================================================== */
-        .operations {
-            padding: 150px 5vw;
-            background: var(--bg-deep);
-            border-top: 1px solid rgba(255,255,255,0.02);
-            position: relative;
-        }
-
-        .grid-operations {
+        .about-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            max-width: 1600px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
-        /* Premium Holographic Card */
-        .holo-card {
-            background: var(--bg-panel);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: var(--radius-md);
-            padding: 50px 40px;
+        .stat-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all var(--transition-fast);
             position: relative;
             overflow: hidden;
-            transition: var(--transition-base);
+        }
+
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--impostor-red);
+            transform: scaleX(0);
+            transition: transform var(--transition-fast);
+            transform-origin: left;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 0, 51, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .stat-box:hover::after {
+            transform: scaleX(1);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-pure);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        /* --- 12. LIVE SCHEDULE (Premium Grid) --- */
+        #schedule {
+            background: linear-gradient(180deg, transparent, rgba(25, 2, 6, 0.4), transparent);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .schedule-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* The glowing border animation for cards */
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, var(--impostor-red), transparent 30%);
+            animation: borderRotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            z-index: 0;
+        }
+
+        .schedule-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--bg-panel);
+            border-radius: 14px;
+            z-index: 1;
+        }
+
+        @keyframes borderRotate {
+            100% { transform: rotate(1turn); }
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255,0,51,0.15);
+        }
+
+        .schedule-card:hover::before {
+            opacity: 1;
+        }
+
+        .schedule-content {
+            position: relative;
+            z-index: 2;
             height: 100%;
             display: flex;
             flex-direction: column;
-            cursor: pointer;
         }
 
-        .holo-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-            z-index: 0;
-            opacity: 0;
-            transition: var(--transition-base);
-        }
-
-        .holo-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: var(--shadow-float);
-        }
-        .holo-card:hover::before { opacity: 1; }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-status {
-            align-self: flex-start;
-            font-family: var(--font-ui);
-            font-size: 0.75rem;
+        .schedule-day {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-pure);
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 6px 12px;
-            border-radius: var(--radius-sm);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .card-meta {
-            font-family: var(--font-ui);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .card-desc {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .card-footer {
-            margin-top: auto;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .card-link {
-            color: var(--text-white);
-            font-family: var(--font-ui);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            position: relative;
+        /* Current Day Highlight */
+        .schedule-card.active-day .schedule-day {
+            color: var(--impostor-red);
+            border-bottom-color: var(--border-red);
+        }
+        
+        .active-badge {
+            font-size: 0.7rem;
+            background: var(--impostor-red);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            animation: pulse-badge 2s infinite;
         }
 
-        /* Specific Card Themes */
-        /* 1. Among Us */
-        .card-au .card-status { background: rgba(0,255,255,0.1); color: var(--neon-cyan); border: 1px solid rgba(0,255,255,0.3); }
-        .card-au .card-meta { color: var(--neon-cyan); }
-        .card-au:hover { border-color: var(--neon-cyan); box-shadow: var(--shadow-neon-cyan); }
-
-        /* 2. Dead by Daylight */
-        .card-dbd .card-status { background: rgba(255,0,51,0.1); color: var(--primary-red); border: 1px solid rgba(255,0,51,0.3); }
-        .card-dbd .card-meta { color: var(--primary-red); }
-        .card-dbd:hover { border-color: var(--primary-red); box-shadow: var(--shadow-neon-red); }
-
-        /* 3. Story Mode */
-        .card-story .card-status { background: rgba(255,183,0,0.1); color: var(--warning-yellow); border: 1px solid rgba(255,183,0,0.3); }
-        .card-story .card-meta { color: var(--warning-yellow); }
-        .card-story:hover { border-color: var(--warning-yellow); box-shadow: 0 0 30px rgba(255,183,0,0.2); }
-
-        /* ==========================================================================
-           12. FOOTER (CLEAN & ICON-FREE)
-           ========================================================================== */
-        footer {
-            background: var(--bg-void);
-            padding: 100px 5vw 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            position: relative;
+        @keyframes pulse-badge {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 51, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 51, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 51, 0); }
         }
 
-        .footer-brand {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            letter-spacing: 10px;
-            font-weight: 900;
-            color: var(--text-white);
-            margin-bottom: 20px;
+        .schedule-game {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
         }
-        .footer-brand span { color: var(--primary-red); }
 
-        .footer-mission {
-            font-family: var(--font-body);
+        .schedule-time {
+            font-family: var(--font-heading);
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 50px;
             font-size: 1.1rem;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .social-links {
+        .schedule-time::before {
+            content: '⏱';
+            font-size: 1.2rem;
+        }
+
+        /* --- 13. AMONG US LOST IN AN ISLAND SERIES --- */
+        #series {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .series-banner-container {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: var(--gap-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid var(--border-red);
+        }
+
+        /* [IMAGE PLACEHOLDER]: Add Epic Series Banner Image here.
+           Recommended size: 1920x800px. High quality artwork of 
+           "Among Us Lost in an Island", featuring crewmates stranded. */
+        .series-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: scale(1.02); /* Hide edge bleeding during parallax */
+            transition: transform 0.5s ease-out;
+        }
+
+        .series-banner-container:hover .series-banner-img {
+            transform: scale(1.05);
+        }
+
+        .series-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 4rem 3rem 3rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        .series-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 20px black;
+        }
+
+        /* Video Embed Frame - Premium Monitor Look */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-subtle);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 20px rgba(255,0,51,0.2);
+            transition: border-color var(--transition-fast);
+        }
+
+        .video-container:hover {
+            border-color: var(--impostor-red);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .series-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,0,51,0.1);
+            border: 1px solid var(--impostor-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--impostor-red);
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* --- 14. OTHER GAMES SECTION --- */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+        }
+
+        .game-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            cursor: none;
+            /* 3D tilt setup */
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* [IMAGE PLACEHOLDER]: Add Dead by Daylight Gameplay Image here.
+           Recommended size: 800x600px. High tension/action shot. */
+        .game-bg-1 { background: url('placeholder-dbd.jpg') center/cover no-repeat; }
+        
+        /* [IMAGE PLACEHOLDER]: Add Story Mode Gameplay Image here.
+           Recommended size: 800x600px. Cinematic/atmospheric shot. */
+        .game-bg-2 { background: url('placeholder-story.jpg') center/cover no-repeat; }
+
+        /* Fallback backgrounds if images fail to load */
+        .game-bg-1, .game-bg-2 {
+            background-color: var(--bg-panel);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+
+        .game-card:hover .game-bg-1,
+        .game-card:hover .game-bg-2 {
+            transform: scale(1.1);
+        }
+
+        .game-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg-void) 10%, rgba(0,0,0,0.5) 50%, transparent);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transform: translateZ(40px); /* Brings text forward in 3D */
+            transition: background var(--transition-fast);
+        }
+
+        .game-card:hover .game-overlay {
+            background: linear-gradient(to top, rgba(255,0,51,0.9) 0%, rgba(0,0,0,0.7) 60%, transparent);
+        }
+
+        .game-overlay h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform var(--transition-fast);
+        }
+
+        .game-overlay p {
+            color: var(--text-pure);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-fast);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .game-card:hover .game-overlay h3 {
+            transform: translateY(0);
+        }
+
+        .game-card:hover .game-overlay p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s;
+        }
+
+        /* --- 15. COMMUNITY SECTION --- */
+        #community {
+            text-align: center;
+        }
+
+        .community-wrapper {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-subtle);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated grid background inside community section */
+        .community-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            perspective: 500px;
+            transform-origin: center top;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
+        }
+
+        .community-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-big-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 60px;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
         }
 
-        .social-pill {
-            padding: 12px 30px;
-            background: var(--bg-panel);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--radius-pill);
-            color: var(--text-white);
-            text-decoration: none;
-            font-family: var(--font-ui);
-            font-size: 0.85rem;
+        .social-card {
+            flex: 1;
+            min-width: 250px;
+            padding: 3rem 2rem;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        /* Platform specific brand colors */
+        .social-card.discord:hover {
+            border-color: #5865F2;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .social-card.youtube:hover {
+            border-color: #FF0000;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            fill: var(--text-pure);
+            transition: fill var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .social-card.discord:hover .social-icon { fill: #5865F2; transform: scale(1.1); }
+        .social-card.youtube:hover .social-icon { fill: #FF0000; transform: scale(1.1); }
+
+        .social-card h3 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        /* --- 16. FOOTER --- */
+        #site-footer {
+            background: var(--bg-void);
+            border-top: 1px solid var(--border-subtle);
+            padding: 5rem 5% 2rem;
+            position: relative;
+        }
+
+        .footer-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo .brand-logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: var(--transition-base);
+            color: var(--text-muted);
         }
 
-        .social-pill:hover {
-            background: var(--text-white);
-            color: var(--bg-void);
-            transform: translateY(-5px);
+        .footer-nav a:hover {
+            color: var(--impostor-red);
         }
 
-        .copyright {
-            font-family: var(--font-ui);
-            color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .footer-bottom {
+            max-width: var(--max-width);
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* ==========================================================================
-           13. RESPONSIVE QUERIES
-           ========================================================================== */
+        .footer-bottom p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px #00ff00;
+            animation: pulse-badge 2s infinite;
+        }
+
+        /* --- 17. SCROLL REVEAL ANIMATIONS (Triggered by JS) --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .is-revealed {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+
+        /* --- 18. RESPONSIVE DESIGN --- */
         @media (max-width: 1024px) {
-            .hero-layout, .manifesto-grid, .grid-operations {
+            .grid-2-col {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
-            .hero-text-content { align-items: center; }
-            .hero-desc { text-align: center; }
-            .manifesto-text p { border-left: none; padding-left: 0; }
-            .nav-links { display: none; } /* Simplified mobile nav for brevity */
+            .footer-logo {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
-            body { cursor: auto; }
-            .cursor-dot, .cursor-ring { display: none; }
-            .crt-wrapper { padding: 10px; }
-            .crt-wrapper::before, .crt-wrapper::after { display: none; }
+            :root {
+                --section-padding: 5rem 5%;
+            }
+            #site-header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            #main-nav {
+                margin-top: 1rem;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            #main-nav ul {
+                gap: 1.5rem;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+            .btn-premium {
+                width: 100%;
+            }
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            /* Disable custom cursor on mobile */
+            .cursor-dot, .cursor-outline {
+                display: none;
+            }
+            *, *::before, *::after {
+                cursor: auto;
+            }
         }
-
     </style>
 </head>
 <body>
 
-    <div class="noise-overlay"></div>
-    <div class="cyber-grid"></div>
-    <canvas id="bg-canvas"></canvas>
+    <!-- Space Background Canvas (Drawn via JS) -->
+    <canvas id="space-canvas"></canvas>
+    <div class="nebula-overlay"></div>
 
+    <!-- Custom Premium Cursor -->
     <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    <div class="cursor-outline"></div>
 
-    <div class="preloader">
-        <div class="loader-brand">RODY</div>
-        <div class="loader-progress-wrap">
-            <div class="loader-progress-bar"></div>
-        </div>
-        <div class="loader-percentage">ESTABLISHING CONNECTION... 0%</div>
-    </div>
-
-    <nav id="navbar">
-        <a href="#home" class="nav-logo hover-target">
-            <span class="radar-symbol"></span> RODY GAMER
-        </a>
-        <div class="nav-links">
-            <a href="#home" class="nav-item hover-target">Airlock</a>
-            <a href="#about" class="nav-item hover-target">Database</a>
-            <a href="#project" class="nav-item hover-target">Broadcast</a>
-            <a href="#schedule" class="nav-item hover-target">Logs</a>
-        </div>
-        <a href="https://www.youtube.com/@rodygamer7804" target="_blank" class="nav-action hover-target">Join Lobby</a>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="hero-layout">
-            <div class="hero-text-content">
-                <div class="system-alert">
-                    <div class="alert-dot"></div>
-                    <span class="alert-text">Vital Signs Critical // Security Breach</span>
-                </div>
-                <h1 class="hero-title">
-                    Trust <br>
-                    <span class="highlight">No One.</span>
-                </h1>
-                <p class="hero-desc">
-                    Imposter psychology, calculated deception, and elite cinematic streams. 
-                    Welcome to the ultimate digital horror experience where survival is never guaranteed and every shadow hides a threat.
-                </p>
-                <a href="https://www.youtube.com/@rodygamer7804" target="_blank" class="btn-primary hover-target">
-                    Deploy to Skeld [YT]
-                </a>
-            </div>
-
-            <div class="hero-visual-container">
-                <div class="css-imposter-wrapper">
-                    <div class="crewmate-pack"></div>
-                    <div class="crewmate-body">
-                        <div class="crewmate-visor"></div>
-                        <div class="blood-splat splat-1"></div>
-                        <div class="blood-splat splat-2"></div>
-                    </div>
-                    <div class="crewmate-leg leg-left"></div>
-                    <div class="crewmate-leg leg-right"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="marquee-section">
+    <!-- Premium Marquee -->
+    <div class="premium-marquee">
         <div class="marquee-track">
-            <div class="marquee-text">
-                <span class="marquee-separator">///</span> SABOTAGE DETECTED
-                <span class="marquee-separator">///</span> THERE IS AN IMPOSTER AMONG US
-                <span class="marquee-separator">///</span> COMMUNICATIONS OFFLINE
-                <span class="marquee-separator">///</span> O2 DEPLETED
-                <span class="marquee-separator">///</span> DEAD BODY REPORTED
-                <span class="marquee-separator">///</span> SABOTAGE DETECTED
-                <span class="marquee-separator">///</span> THERE IS AN IMPOSTER AMONG US
-                <span class="marquee-separator">///</span> COMMUNICATIONS OFFLINE
-                <span class="marquee-separator">///</span> O2 DEPLETED
-                <span class="marquee-separator">///</span> DEAD BODY REPORTED
-            </div>
+            <!-- Repeated for seamless loop -->
+            <span class="marquee-item">THERE IS AN IMPOSTOR AMONG US</span>
+            <span class="marquee-item">DAILY OFFICIAL AMONG US GAMEPLAY</span>
+            <span class="marquee-item">TRUST NO ONE</span>
+            <span class="marquee-item">AMONG US LOST IN AN ISLAND</span>
+            <span class="marquee-item">JOIN THE CREW</span>
+            <span class="marquee-item">DEAD BY DAYLIGHT</span>
+            <span class="marquee-item">THERE IS AN IMPOSTOR AMONG US</span>
+            <span class="marquee-item">DAILY OFFICIAL AMONG US GAMEPLAY</span>
+            <span class="marquee-item">TRUST NO ONE</span>
+            <span class="marquee-item">AMONG US LOST IN AN ISLAND</span>
+            <span class="marquee-item">JOIN THE CREW</span>
+            <span class="marquee-item">DEAD BY DAYLIGHT</span>
         </div>
     </div>
 
-    <section class="manifesto" id="about">
-        <div class="manifesto-grid">
-            <div class="manifesto-visual">
-                <div class="abstract-art">
-                    <div class="art-circle"></div>
+    <!-- Site Header -->
+    <header id="site-header">
+        <div class="brand-container">
+            <div class="brand-logo">
+                <!-- [IMAGE PLACEHOLDER]: Add transparent streamer logo here. e.g. <img src="logo.png" alt="RODY Logo"> -->
+                 <img src = "logo.png" alt="RODY Logo">
+            </div>
+            <div class="brand-name">ROD<span>Y</span></div>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#hero" class="hover-target">Home</a></li>
+                <li><a href="#about" class="hover-target">About</a></li>
+                <li><a href="#schedule" class="hover-target">Schedule</a></li>
+                <li><a href="#series" class="hover-target">Lost in an Island</a></li>
+                <li><a href="#games" class="hover-target">Games</a></li>
+                <li><a href="#community" class="hover-target">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content reveal-up">
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title" data-text="Rody's Universe">Rody's Universe</h1>
                 </div>
+                <p class="hero-desc">
+                    Welcome to the ultimate hub for RODY's universe. Experience daily intense, official Among Us gameplay, thrilling dead by daylight chases, and cinematic story adventures. Trust no one, survive the island.
+                </p>
+                <div class="hero-actions">
+                    <a href="#series" class="btn-premium hover-target">Watch Latest Series</a>
+                    <a href="#community" class="btn-premium hover-target" style="border-color: var(--border-subtle); color: var(--text-main);">Join Discord</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to survive</span>
+                <div class="mouse"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header reveal-up">
+                <span class="section-subtitle">Profile</span>
+                <h2>Meet The Creator</h2>
             </div>
             
-            <div class="manifesto-text">
-                <div class="section-header">
-                    <span class="tagline">Subject Profile</span>
-                    <h2 class="section-title">The <br>Architect of <br><span style="color:var(--neon-cyan)">Fear.</span></h2>
+            <div class="grid-2-col">
+                <div class="about-image-wrapper reveal-left" data-tilt>
+                    <!-- [IMAGE PLACEHOLDER]: Add Premium Streamer Portrait Image here -->
+                    <img src="logo.gif" alt="RODY Portrait Placeholder" class="about-image">
                 </div>
                 
-                <p>I don't just stream games. I architect psychological warfare. Every broadcast is a heavily produced, cinematic event blending high-end animation assets, cartoon/anime aesthetics, and unyielding mind games.</p>
-                <p>Whether manipulating the crew on the Skeld or surviving the Entity's trials, the focus is on elite-tier production value and narrative-driven suspense. It's not just a lobby; it's a stage.</p>
+                <div class="glass-panel reveal-right delay-200" data-tilt>
+                    <h3>The Master of Deception</h3>
+                    <p>RODY is a dedicated variety gamer who built an empire on interactive, high-stakes <strong>official Among Us</strong> lobbies. Every day, viewers become crewmates or impostors, creating unforgettable moments of betrayal, logic, and pure chaos.</p>
+                    <p>No mods, no gimmicks. Just pure, official game mechanics where psychological warfare reigns supreme. Beyond the spaceship, RODY dives into the horrific fog of <strong>Dead by Daylight</strong> and explores rich, narrative-driven story games.</p>
+                    <p>The channel mission is simple: deliver top-tier, premium entertainment while making every viewer feel like a crucial part of the crew. Will you survive the next meeting?</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">Daily</span>
+                            <span class="stat-label">Official Lobbies</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Viewer Driven</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule">
+            <div class="section-header reveal-up">
+                <span class="section-subtitle">Transmission Log</span>
+                <h2>Live Schedule</h2>
+                <p>RODY broadcasts live every single day. The grind never stops. (Times shown in local stream timezone)</p>
+            </div>
+            
+            <div class="schedule-grid">
+                <!-- Days generated by structure, active class handled by JS -->
+                <div class="schedule-card reveal-scale delay-100" id="day-1">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Monday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / Impostor Hunts</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-200" id="day-2">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Tuesday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / Logic Plays</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-300" id="day-3">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Wednesday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / Chaos Runs</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-100" id="day-4">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Thursday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / 200 IQ Strats</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-200" id="day-5">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Friday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / Weekend Kickoff</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-300" id="day-6">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Saturday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / Community Night</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
+                <div class="schedule-card reveal-scale delay-100" id="day-0">
+                    <div class="schedule-content">
+                        <div class="schedule-day">Sunday <span class="active-badge" style="display:none;">LIVE TODAY</span></div>
+                        <div class="schedule-game">Official Among Us</div>
+                        <p>Viewer Lobbies / High Stakes</p>
+                        <div class="schedule-time">4:00 PM - 6:00 PM</div>
+                    </div>
+                </div>
                 
-                <div class="manifesto-stats">
-                    <div class="stat-item">
-                        <h3>99.9%</h3>
-                        <span>Deception Rate</span>
-                    </div>
-                    <div class="stat-item">
-                        <h3>0.00</h3>
-                        <span>Mercy Given</span>
+                <div class="schedule-card reveal-scale delay-200" style="border-color: var(--impostor-red);">
+                    <div class="schedule-content">
+                        <div class="schedule-day" style="color: var(--impostor-red);">Upcoming</div>
+                        <div class="schedule-game">Dead by Daylight & Story</div>
+                        <p>The Fog approaches. Narrative adventures inbound. Special timeslots TBA.</p>
+                        <div class="schedule-time" style="color: var(--impostor-red);">COMING SOON</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="showcase" id="project">
-        <div class="showcase-header">
-            <span class="tagline">Encrypted Transmission</span>
-            <h2 class="section-title">Among Us: <br><span>Lost on an Island</span></h2>
-        </div>
+        <!-- Among Us Series Section -->
+        <section id="series">
+            <div class="section-header reveal-up">
+                <span class="section-subtitle">Featured Cinematic</span>
+                <h2>Lost in an Island</h2>
+                <p>RODY's hit original series. Stranded, paranoid, and fighting to survive.</p>
+            </div>
 
-<div class="crt-wrapper hover-target">
-<div class="scanlines"></div>
-
-<div class="video-container">
-<iframe
-width="100%"
-height="100%"
-src="https://www.youtube.com/embed/5tJ3ahdO81A"
-title="Among Us: Lost on an Island Episode 1"
-loading="lazy"
-referrerpolicy="strict-origin-when-cross-origin"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
-</div>
-</div>
-
-
-        <div class="showcase-details">
-            <p><strong>EPISODE 1 IS LIVE.</strong> The rules have changed. The real-life horror bleeds into the digital realm in this high-tension, narrative-driven TV-style series. Watch the premiere above and prepare for the nightmare.</p>
-        </div>
-    </section>
-
-    <section class="operations" id="schedule">
-        <div class="section-header" style="text-align: center; margin-bottom: 80px;">
-            <span class="tagline">System Logs</span>
-            <h2 class="section-title">Broadcast <br>Operations</h2>
-        </div>
-
-        <div class="grid-operations">
-            <div class="holo-card card-au hover-target">
-                <div class="card-content">
-                    <div class="card-status">Active Signal</div>
-                    <h3 class="card-title">Among Us</h3>
-                    <div class="card-meta">SCHEDULE: DAILY OPERATIONS</div>
-                    <p class="card-desc">The core directive. High IQ deductions, custom manipulated lobbies, and pure psychological warfare. Watch as friendships are tested and the imposter claims dominance.</p>
-                    <div class="card-footer">
-                        <span class="card-link">View Archives [>]</span>
+            <div class="series-banner-container reveal-up delay-100">
+                <!-- [IMAGE PLACEHOLDER]: Add Epic Series Banner Image here -->
+                 <img src="amongus.jpg" alt="Among Us Lost in an Island Banner Placeholder" class="series-banner-img">
+                <div class="series-overlay">
+                    <div>
+                        <h3 class="series-title">Lost in an Island</h3>
+                        <p>Episode 1: The Arrival is streaming now.</p>
                     </div>
+                    <a href="https://www.youtube.com/watch?v=5tJ3ahdO81A" target="_blank" class="btn-premium hover-target">Watch on YouTube</a>
                 </div>
             </div>
 
-            <div class="holo-card card-dbd hover-target">
-                <div class="card-content">
-                    <div class="card-status">Signal Pending</div>
-                    <h3 class="card-title">Dead By Daylight</h3>
-                    <div class="card-meta">SCHEDULE: THE FOG APPROACHES</div>
-                    <p class="card-desc">Asymmetric horror at its peak. Elite killer mechanics and high-MMR survivor looping. The Entity demands sacrifices, and the cinematic production answers.</p>
-                    <div class="card-footer">
-                        <span class="card-link">Awaiting Trial [>]</span>
+            <div class="grid-2-col" style="margin-top: 4rem;">
+                <div class="video-container reveal-left delay-200">
+                    <iframe src="https://www.youtube.com/embed/5tJ3ahdO81A?si=n1pPjDqqczwORqK9&amp;controls=1&amp;rel=0&amp;playsinline=1&amp;modestbranding=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="reveal-right delay-300">
+                    <h3>A New Survival Experience</h3>
+                    <p>In "Among Us Lost in an Island", RODY drops the classic crewmate-impostor dynamic onto a deserted island. Viewers join as castaways, completing tasks to survive while hidden threats lurk in the jungle.</p>
+                    <p>This series combines deep storytelling, immersive roleplay, and the pure, unadulterated mechanics of the official Among Us game. No mods. Just pure psychological terror and suspense.</p>
+                    
+                    <div class="series-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🎬</div>
+                            <div class="feature-text">
+                                <h4>Episodic Narrative</h4>
+                                <p>A gripping story that unfolds episode by episode.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🗳️</div>
+                            <div class="feature-text">
+                                <h4>Viewer Driven</h4>
+                                <p>Community votes and actions directly impact the lore.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="holo-card card-story hover-target">
-                <div class="card-content">
-                    <div class="card-status">Standby</div>
-                    <h3 class="card-title">Story Mode</h3>
-                    <div class="card-meta">SCHEDULE: TRANSMISSION SOON</div>
-                    <p class="card-desc">Deep dives into gaming's darkest narratives. Indie horrors, psychological thrillers, and lore-heavy playthroughs delivered with premium commentary and atmosphere.</p>
-                    <div class="card-footer">
-                        <span class="card-link">Decrypting... [>]</span>
+        <!-- Other Games Section -->
+        <section id="games">
+            <div class="section-header reveal-up">
+                <span class="section-subtitle">Expanded Arsenal</span>
+                <h2>More Than Just Tasks</h2>
+            </div>
+            
+            <div class="games-grid">
+                <div class="game-card reveal-up delay-100" data-tilt>
+                    <div class="game-bg-1">
+                        <!-- [IMAGE PLACEHOLDER: DBD BG] Inserted via CSS .game-bg-1 -->
+                         <img src="DBD.jpg" alt="Dead by Daylight Gameplay Placeholder" class="game-bg-1">
+                    </div>
+                    <div class="game-overlay">
+                        <h3>Dead by Daylight</h3>
+                        <p>Enter the fog. Brutal killer matches, intense survivor mindgames, and high-tension custom viewer lobbies. The entity demands sacrifices, and RODY delivers.</p>
                     </div>
                 </div>
+                
+                <div class="game-card reveal-up delay-200" data-tilt>
+                    <div class="game-bg-2">
+                        <img src="story.png" alt="Story Mode Gameplay Placeholder" class="game-bg-2">
+                        <!-- [IMAGE PLACEHOLDER: STORY BG] Inserted via CSS .game-bg-2 -->
+                    </div>
+                    <div class="game-overlay">
+                        <h3>Story Adventures</h3>
+                        <p>Immersive single-player narratives. Cinematic horror, deep mysteries, and emotional journeys dictated by viewer suggestions. Epic tales await.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section (Only Discord & YouTube) -->
+        <section id="community">
+            <div class="community-wrapper reveal-scale">
+                <div class="community-content">
+                    <h2>Join The Crew</h2>
+                    <p>RODY's community is the heartbeat of the channel. Engage in daily voice chats, secure your spot in the official Among Us lobbies, and vote on the next big series twist. Only the loyal survive.</p>
+                    
+                    <div class="social-big-links">
+                        <!-- YouTube -->
+                        <a href="#" class="social-card youtube hover-target" target="_blank" rel="noopener">
+                            <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <h3>Subscribe</h3>
+                            <p>Watch daily streams & episodes</p>
+                        </a>
+                        
+                        <!-- Discord -->
+                        <a href="#" class="social-card discord hover-target" target="_blank" rel="noopener">
+                            <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                            <h3>Join Server</h3>
+                            <p>Play in viewer lobbies</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+        <div class="footer-grid">
+            <div class="footer-logo">
+                <div class="brand-logo">
+                    <!-- [IMAGE PLACEHOLDER]: Transparent logo here (small) -->
+                     <img src="logo.png" alt="RODY Logo">
+                </div>
+                <div class="brand-name" style="font-size: 1.5rem;">ROD<span>Y</span></div>
+            </div>
+            
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="#hero" class="hover-target">Home</a></li>
+                    <li><a href="#about" class="hover-target">About</a></li>
+                    <li><a href="#schedule" class="hover-target">Schedule</a></li>
+                    <li><a href="#series" class="hover-target">Island Series</a></li>
+                </ul>
+            </nav>
+            
+            <div style="text-align: right;">
+                <p style="margin:0; font-family:var(--font-heading); color:var(--text-muted);"><span class="status-dot"></span>SYSTEM ONLINE</p>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <h2 class="footer-brand">RODY<span>GAMER</span></h2>
-        <p class="footer-mission">Elevating the Among Us and Asymmetric Horror streaming space with unparalleled cinematic production and elite gameplay mechanics.</p>
         
-        <div class="social-links">
-            <a href="https://www.youtube.com/@rodygamer7804" target="_blank" class="social-pill hover-target">YouTube</a>
-            <a href="#" class="social-pill hover-target">Discord</a>
-        </div>
-        
-        <div class="copyright">
-            &copy; 2026 RODY GAMER. SYSTEM SECURED.
+        <div class="footer-bottom">
+            <p>&copy; 2026 RODY Official. All Rights Reserved. Not affiliated with Innersloth.</p>
+            <p>Designed for the ultimate crewmates.</p>
         </div>
     </footer>
 
+    <!-- ==========================================================================
+         ULTIMATE PREMIUM JAVASCRIPT
+         Handles: Space Canvas, Custom Cursor, Scroll Reveals, 3D Tilt, active schedule
+         ========================================================================== -->
     <script>
-        // ==========================================================================
-        // 1. CUSTOM CURSOR PHYSICS & MAGNETIC EFFECTS
-        // ==========================================================================
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorRing = document.querySelector('.cursor-ring');
-        const hoverTargets = document.querySelectorAll('.hover-target');
+        document.addEventListener('DOMContentLoaded', () => {
 
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let ringX = mouseX;
-        let ringY = mouseY;
-
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+            /* --- 1. CUSTOM CURSOR LOGIC --- */
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button, .glass-panel, .game-card, .schedule-card');
             
-            // Dot follows instantly
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
+            let mouseX = 0, mouseY = 0;
+            let outlineX = 0, outlineY = 0;
 
-        // Smooth follow for the ring using requestAnimationFrame
-        function animateCursor() {
-            // Easing formula: current += (target - current) * friction
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover states
-        hoverTargets.forEach(target => {
-            target.addEventListener('mouseenter', () => {
-                cursorDot.classList.add('hover-target');
-                cursorRing.classList.add('hover-target');
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.left = `${mouseX}px`;
+                cursorDot.style.top = `${mouseY}px`;
             });
-            target.addEventListener('mouseleave', () => {
-                cursorDot.classList.remove('hover-target');
-                cursorRing.classList.remove('hover-target');
-            });
-        });
 
-        // ==========================================================================
-        // 2. CANVAS BACKGROUND (PARTICLE SYSTEM)
-        // ==========================================================================
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speedY = Math.random() * -0.5 - 0.1; // Float up
-                this.opacity = Math.random() * 0.5;
-                this.color = Math.random() > 0.8 ? '#ff0033' : '#00ffff'; // Occasionally red
+            // Smooth trailing effect for the outline
+            function animateCursor() {
+                let distX = mouseX - outlineX;
+                let distY = mouseY - outlineY;
+                outlineX += distX * 0.15; // Smoothness factor
+                outlineY += distY * 0.15;
+                
+                cursorOutline.style.left = `${outlineX}px`;
+                cursorOutline.style.top = `${outlineY}px`;
+                requestAnimationFrame(animateCursor);
             }
-            update() {
-                this.y += this.speedY;
-                if (this.y < 0) {
-                    this.y = canvas.height;
-                    this.x = Math.random() * canvas.width;
+            animateCursor();
+
+            // Hover states
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                target.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+
+
+            /* --- 2. PREMIUM SPACE BACKGROUND CANVAS (Object-Oriented) --- */
+            const canvas = document.getElementById('space-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let stars = [];
+            
+            // Mouse variables for parallax
+            let camX = 0;
+            let camY = 0;
+            let targetCamX = 0;
+            let targetCamY = 0;
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            window.addEventListener('mousemove', (e) => {
+                targetCamX = (e.clientX - width / 2) * 0.05;
+                targetCamY = (e.clientY - height / 2) * 0.05;
+            });
+
+            class Star {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = (Math.random() - 0.5) * width * 2;
+                    this.y = (Math.random() - 0.5) * height * 2;
+                    this.z = Math.random() * 1000 + 100; // Depth for 3D effect
+                    this.baseSize = Math.random() * 2;
+                    // Slightly tint some stars red for Among Us theme
+                    this.color = Math.random() > 0.9 ? `rgba(255, 0, 51, ${Math.random()})` : `rgba(255, 255, 255, ${Math.random()})`;
+                }
+                update() {
+                    this.z -= 0.5; // Slowly move forward
+                    if (this.z <= 0) this.reset();
+                }
+                draw() {
+                    // Calculate perspective and parallax
+                    const projectedX = (this.x - camX) * (1000 / this.z) + width / 2;
+                    const projectedY = (this.y - camY) * (1000 / this.z) + height / 2;
+                    const size = this.baseSize * (1000 / this.z);
+                    
+                    // Don't draw if out of bounds
+                    if (projectedX < 0 || projectedX > width || projectedY < 0 || projectedY > height) return;
+
+                    ctx.beginPath();
+                    ctx.arc(projectedX, projectedY, size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
                 }
             }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.globalAlpha = 1.0;
+
+            // Create Starfield
+            for (let i = 0; i < 400; i++) {
+                stars.push(new Star());
             }
-        }
 
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < 150; i++) {
-                particles.push(new Particle());
+            function animateSpace() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Smooth camera parallax interpolation
+                camX += (targetCamX - camX) * 0.05;
+                camY += (targetCamY - camY) * 0.05;
+
+                stars.forEach(star => {
+                    star.update();
+                    star.draw();
+                });
+                
+                requestAnimationFrame(animateSpace);
             }
-        }
-        
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
+            animateSpace();
 
-        initParticles();
-        animateParticles();
 
-        // ==========================================================================
-        // 3. GSAP TIMELINES & SCROLL TRIGGERS
-        // ==========================================================================
-        // Register Plugins
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Preloader Logic
-        window.addEventListener('load', () => {
-            const tlLoader = gsap.timeline();
+            /* --- 3. SCROLL REVEAL OBSERVER --- */
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
             
-            tlLoader.to('.loader-progress-bar', {
-                width: '100%',
-                duration: 2,
-                ease: "power3.inOut",
-                onUpdate: function() {
-                    const progress = Math.round(this.progress() * 100);
-                    document.querySelector('.loader-percentage').innerText = `ESTABLISHING CONNECTION... ${progress}%`;
-                }
-            })
-            .to('.preloader', {
-                yPercent: -100,
-                duration: 1.2,
-                ease: "power4.inOut",
-                delay: 0.2
-            })
-            .from('.nav-logo', { y: -20, opacity: 0, duration: 0.8 }, "-=0.5")
-            .from('.nav-item, .nav-action', { y: -20, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.6")
-            .from('.system-alert', { x: -50, opacity: 0, duration: 0.8 }, "-=0.4")
-            .from('.hero-title', { y: 50, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.6")
-            .from('.hero-desc', { y: 30, opacity: 0, duration: 1 }, "-=0.8")
-            .from('.btn-primary', { scale: 0.9, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }, "-=0.6")
-            .from('.css-imposter-wrapper', { scale: 0.8, opacity: 0, rotationY: 45, duration: 1.5, ease: "power3.out" }, "-=1");
-        });
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
 
-        // Navbar Scroll Effect
-        ScrollTrigger.create({
-            start: "top -80",
-            onUpdate: (self) => {
-                const nav = document.getElementById('navbar');
-                if (self.direction === 1) {
-                    nav.classList.add('scrolled');
-                } else if (self.progress === 0) {
-                    nav.classList.remove('scrolled');
-                }
-            }
-        });
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target); // Reveal once
+                });
+            }, revealOptions);
 
-        // Scroll Animations - Manifesto
-        gsap.from('.manifesto-text > *', {
-            scrollTrigger: {
-                trigger: '.manifesto',
-                start: 'top 70%'
-            },
-            y: 40,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power2.out"
-        });
+            revealElements.forEach(el => revealOnScroll.observe(el));
 
-        gsap.from('.manifesto-visual', {
-            scrollTrigger: {
-                trigger: '.manifesto',
-                start: 'top 70%'
-            },
-            x: -50,
-            opacity: 0,
-            duration: 1.2,
-            ease: "power2.out"
-        });
 
-        // Scroll Animations - Project Showcase
-        gsap.from('.showcase-header > *', {
-            scrollTrigger: { trigger: '.showcase', start: 'top 80%' },
-            y: 30, opacity: 0, duration: 1, stagger: 0.2
-        });
+            /* --- 4. 3D VANILLA TILT EFFECT --- */
+            const tiltElements = document.querySelectorAll('[data-tilt]');
+            
+            tiltElements.forEach(el => {
+                el.addEventListener('mousemove', handleTilt);
+                el.addEventListener('mouseleave', resetTilt);
+            });
 
-        gsap.from('.crt-wrapper', {
-            scrollTrigger: { trigger: '.showcase', start: 'top 60%' },
-            scale: 0.95, opacity: 0, y: 50, duration: 1.2, ease: "power3.out"
-        });
-
-        // Scroll Animations - Schedules / Cards
-        gsap.from('.operations .section-header > *', {
-            scrollTrigger: { trigger: '.operations', start: 'top 80%' },
-            y: 30, opacity: 0, duration: 1
-        });
-
-        gsap.from('.holo-card', {
-            scrollTrigger: { trigger: '.grid-operations', start: 'top 75%' },
-            y: 60, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
-        });
-
-        // ==========================================================================
-        // 4. 3D CARD TILT LOGIC
-        // ==========================================================================
-        const cards = document.querySelectorAll('.holo-card');
-        
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
+            function handleTilt(e) {
+                const el = this;
+                const rect = el.getBoundingClientRect();
+                
+                // Get mouse position relative to element
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+                // Calculate percentage
+                const xPercent = x / rect.width;
+                const yPercent = y / rect.height;
                 
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
+                // Calculate rotation (max 15 degrees)
+                const rotateX = (0.5 - yPercent) * 15;
+                const rotateY = (xPercent - 0.5) * 15;
+                
+                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                el.style.transition = 'none'; // Remove transition for smooth tracking
+            }
 
-                gsap.to(card, {
-                    rotationX: rotateX,
-                    rotationY: rotateY,
-                    transformPerspective: 1000,
-                    ease: "power1.out",
-                    duration: 0.5
+            function resetTilt(e) {
+                const el = this;
+                el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                el.style.transition = 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)'; // Restore transition for snap back
+            }
+
+
+            /* --- 5. DYNAMIC SCHEDULE HIGHLIGHT --- */
+            // Get current day of week (0 = Sunday, 1 = Monday, etc.)
+            const currentDay = new Date().getDay();
+            const activeCard = document.getElementById(`day-${currentDay}`);
+            
+            if (activeCard) {
+                activeCard.classList.add('active-day');
+                // Show the "LIVE TODAY" badge
+                const badge = activeCard.querySelector('.active-badge');
+                if(badge) badge.style.display = 'inline-block';
+                // Add an intense red glow to today's card
+                activeCard.style.boxShadow = '0 0 20px rgba(255,0,51,0.3)';
+                activeCard.style.borderColor = 'rgba(255,0,51,0.5)';
+            }
+
+
+            /* --- 6. STICKY HEADER GLASSMORPHISM --- */
+            const header = document.getElementById('site-header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+
+            /* --- 7. SMOOTH SCROLLING FOR ANCHORS --- */
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
                 });
             });
 
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, {
-                    rotationX: 0,
-                    rotationY: 0,
-                    ease: "elastic.out(1, 0.5)",
-                    duration: 1.2
-                });
-            });
         });
     </script>
 </body>
